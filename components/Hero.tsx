@@ -9,9 +9,9 @@ function Hero() {
   return (
     <div className="hero">
       <div className="flex-1 padding-x pt-36">
-        <h1 className="hero__title">
-          Find, book or Rent a car --- quickly and easily
-        </h1>
+        <h2 className="hero__title">
+          Find, book or Rent a car -- quickly and easily
+        </h2>
         <p className="hero__subtitle">
           Streamline your car rental experience with effortless booking process
         </p>
