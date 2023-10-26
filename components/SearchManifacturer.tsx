@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { ManifacturerProps } from "@/Types";
