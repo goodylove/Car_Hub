@@ -1,7 +1,7 @@
 import React from "react";
 
-function CustomFilter() {
-  return <div>CustomFilter</div>;
+function CustomFilter({ title }: any) {
+  return <div>{title}</div>;
 }
 
 export default CustomFilter;
