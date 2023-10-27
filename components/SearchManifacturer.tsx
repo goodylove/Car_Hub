@@ -22,7 +22,7 @@ function SearchManifacturer({
         );
   return (
     <div className="search-manufacturer">
-      <Combobox>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <Image
@@ -47,13 +47,51 @@ function SearchManifacturer({
             afterEnter={() => setQuery("")}
           >
             <Combobox.Options>
-              {filteredManufacturers.length === 0 && query !== "" && (
+              {filteredManufacturers.length === 0 && query !== "" ? (
                 <Combobox.Option
                   value={query}
                   className="search-manufacturer_option"
                 >
-                  create {query}
+                  <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                    Nothing found.
+                  </div>
                 </Combobox.Option>
+              ) : (
+                <Combobox.Options>
+                  {filteredManufacturers.map((item) => (
+                    <Combobox.Option
+                      key={item}
+                      value={item}
+                      className={({ active }) => `
+                     relative search-manufacturer_option ${
+                       active
+                         ? "bg-primary-blue text-white"
+                         : "bg-primary-gray-900"
+                     }`}
+                    >
+                      {({ selected, active }) => {
+                        return (
+                          <>
+                            <span
+                              className={`block truncate ${
+                                selected ? "font-medium" : "font-normal"
+                              }`}
+                            >
+                              {item}
+                            </span>
+                            {selected ? (
+                              <span
+                                className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                                  active ? "text-white" : "text-teal-600"
+                                }`}
+                              ></span>
+                            ) : null}
+                          </>
+                        );
+                      }}
+                    </Combobox.Option>
+                  ))}
+                </Combobox.Options>
               )}
             </Combobox.Options>
           </Transition>
