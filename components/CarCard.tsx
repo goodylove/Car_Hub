@@ -11,6 +11,7 @@ interface CarCardProps {
 }
 
 function CarCard({ car }: CarCardProps) {
+  const [isOpen, setIsOpen] = React.useState(false);
   const { year, city_mpg, model, make, drive, transmission } = car;
 
   const carRent = calculateCarRate(city_mpg, year);
@@ -66,7 +67,7 @@ function CarCard({ car }: CarCardProps) {
             containerStyles="bg-primary-blue w-full py-[16px] rounded-full text-white"
             rightIcon="/right-arrow.svg"
             textStyle="text-white leading-[17px] font-bold  text-[14px]"
-            handleIsOpen={() => setIsOpen(true)}
+            handleClick={() => setIsOpen(true)}
           />
         </div>
       </div>
