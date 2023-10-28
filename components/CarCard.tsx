@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { CarProps } from "./../Types/index";
 import { calculateCarRate } from "@/utils";
 import Image from "next/image";
+import { CustomButton } from ".";
 
 interface CarCardProps {
   car: CarProps;
@@ -34,7 +37,7 @@ function CarCard({ car }: CarCardProps) {
         />
       </div>
       <div className="relative flex w-full mt-2">
-        <div className="flex group hover:invisible justify-between text-gray w-full">
+        <div className="flex group-hover:invisible justify-between text-gray w-full">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image
               src="/steering-wheel.svg"
@@ -50,10 +53,21 @@ function CarCard({ car }: CarCardProps) {
             <Image src="/tire.svg" alt="steering-icon" width={20} height={20} />
             <p className="text-[14px]">{drive.toUpperCase()}</p>
           </div>
+
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/gas.svg" alt="steering-icon" width={20} height={20} />
             <p className="text-[14px]">{city_mpg}MPG</p>
           </div>
+        </div>
+
+        <div className="car-card__btn-container">
+          <CustomButton
+            title="view more"
+            containerStyles="bg-primary-blue w-full py-[16px] rounded-full text-white"
+            rightIcon="/right-arrow.svg"
+            textStyle="text-white leading-[17px] font-bold  text-[14px]"
+            handleIsOpen={() => setIsOpen(true)}
+          />
         </div>
       </div>
     </div>
