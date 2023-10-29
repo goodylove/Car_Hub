@@ -2,7 +2,7 @@
 
 import React from "react";
 import { CarProps } from "./../Types/index";
-import { calculateCarRate } from "@/utils";
+import { calculateCarRate, generateCarImageUrl } from "@/utils";
 import Image from "next/image";
 import { CustomButton } from ".";
 import CardDetails from "./CardDetails";
@@ -17,10 +17,10 @@ function CarCard({ car }: CarCardProps) {
 
   const carRent = calculateCarRate(city_mpg, year);
   return (
-    <div className="car-card group">
+    <div className="car-card group my-5">
       <div className="car-card__content">
         <h2 className="car-card__content-title">
-          {model}
+          {model} &nbsp;
           {make}
         </h2>
       </div>
@@ -31,7 +31,7 @@ function CarCard({ car }: CarCardProps) {
       </p>
       <div className="relative w-full object-contain  h-40 my-3">
         <Image
-          src="/hero.png"
+          src={generateCarImageUrl(car)}
           fill
           priority
           alt="logo"

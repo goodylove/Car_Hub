@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { CradDetailsProps } from "@/Types";
 import { Transition, Dialog } from "@headlessui/react";
 import Image from "next/image";
+import { generateCarImageUrl } from "@/utils";
 
 function CardDetails({ isOpen, car, closeModal }: CradDetailsProps) {
   return (
@@ -50,7 +51,7 @@ function CardDetails({ isOpen, car, closeModal }: CradDetailsProps) {
                 <div className="flex-1 flex-col flex gap-3">
                   <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                     <Image
-                      src="/hero.png"
+                      src={generateCarImageUrl(car)}
                       fill
                       priority
                       alt="logo"
@@ -61,7 +62,7 @@ function CardDetails({ isOpen, car, closeModal }: CradDetailsProps) {
                   <div className="flex gap-3">
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                       <Image
-                        src="/hero.png"
+                        src={generateCarImageUrl(car, "29")}
                         fill
                         priority
                         alt="logo"
@@ -70,7 +71,7 @@ function CardDetails({ isOpen, car, closeModal }: CradDetailsProps) {
                     </div>
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                       <Image
-                        src="/hero.png"
+                        src={generateCarImageUrl(car, "33")}
                         fill
                         priority
                         alt="logo"
@@ -79,7 +80,7 @@ function CardDetails({ isOpen, car, closeModal }: CradDetailsProps) {
                     </div>
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                       <Image
-                        src="/hero.png"
+                        src={generateCarImageUrl(car, "13")}
                         fill
                         priority
                         alt="logo"
