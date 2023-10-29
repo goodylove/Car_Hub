@@ -8,7 +8,7 @@ export async function fetchCars() {
     "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
   };
   const res = await fetch(url, {
-    headers,
+    headers: headers,
   });
   const result = await res.json();
   return result;
