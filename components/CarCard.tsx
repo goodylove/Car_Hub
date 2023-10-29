@@ -5,6 +5,7 @@ import { CarProps } from "./../Types/index";
 import { calculateCarRate } from "@/utils";
 import Image from "next/image";
 import { CustomButton } from ".";
+import CardDetails from "./CardDetails";
 
 interface CarCardProps {
   car: CarProps;
@@ -71,6 +72,12 @@ function CarCard({ car }: CarCardProps) {
           />
         </div>
       </div>
+
+      <CardDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        car={car}
+      />
     </div>
   );
 }
