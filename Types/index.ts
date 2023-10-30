@@ -52,3 +52,8 @@ export interface CustomFliterProps {
   title: string;
   option: OptionProps[];
 }
+
+export interface ShowMoreProps {
+  pageNumber: number;
+  isNext: boolean;
+}
